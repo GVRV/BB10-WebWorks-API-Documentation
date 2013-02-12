@@ -1,0 +1,633 @@
+<div class="site_container clearfix apis">
+<nav id="user_bar" class="row user_bar">
+<div class="column grid_full">
+<ul>
+<li class="title">
+<a href="/" class="expand_height logo">
+<span class="logo"><span class="hidden">BlackBerry Developer</span></span>
+</a>
+</li>
+<li>
+<a href="http://devblog.blackberry.com" class="expand_height" target="_blank">Blog</a>
+</li>
+<li>
+<a href="http://www.youtube.com/blackberrydev/" class="expand_height" target="_blank">YouTube</a>
+</li>
+<li>
+<a href="http://supportforums.blackberry.com/t5/Developer-Support-Forums/ct-p/blackberrydev" class="expand_height" target="_blank">Forum</a>
+</li>
+<li>
+<a href="https://www.blackberry.com/SignedKeys" class="expand_height" target="_blank">Signing keys</a>
+</li>
+<li class="last">
+<a href="https://www.blackberry.com/jira/secure/Dashboard.jspa" class="expand_height" target="_blank">Feedback</a>
+</li>
+<li class="right">
+<a href="https://bdsc.webapps.blackberry.com/bdsc/register.html" class="expand_height icon_login" target="_blank">Register</a>
+</li>
+<li class="right">
+<a href="https://bdsc.webapps.blackberry.com/bdsc/login.pg" class="expand_height icon_login" target="_blank">Login</a>
+</li>
+</ul>
+</div>
+</nav>
+<header class="navigation-primary">
+<div class="row">
+<nav class="column grid_12">
+<a class="logo-page" href="/html5/">
+<span class="h1">HTML5 <span class="gray light"> WebWorks</span></span>
+</a>
+<span class="sdk-top-info">
+<a class="releasenotes" href="/html5/documentation/blackberry10_webworkssdk_release_notes.html" title="Release notes">Release notes &rsaquo;</a> &nbsp;|&nbsp;
+    			<a class="roadmap" href="/html5/downloads/roadmap/" title="Roadmap">Roadmap &rsaquo;</a>
+</span>
+</nav>
+</div>
+<a target="_blank" href="http://blackberry.github.com/">
+<img alt="Fork me on GitHub" src="/html5/webroot/img/forkme.png" style="position: absolute; top: 30px; right: 0px; border: 0px; z-index:1000;" />
+</a>
+<div class="row">
+<nav class="column grid_12" role="navigation">
+<ul id="nav-primary">
+<li id="downloads"><a href="/html5/download/">Downloads</a></li>
+<li id="sampleapps"><a href="/html5/sampleapps/">Sample apps</a></li>
+<li id="documentations"><a href="/html5/documentation/">Documentation</a></li>
+<li id="apis"><a href="/html5/apis/">API Reference</a></li>
+<li id="searchbox" class="last">
+<form action="/html5/search" method="get">
+<label for="search" class="hidden">Search for</label><input id="search" name="search" type="text" value="Search" />
+<input name="searchaction" type="submit" value="Search" class="" />
+</form>
+</li>
+</ul>
+</nav>
+</div>
+</header>
+<section class="page_container references">
+<div class="row">
+<nav class="column grid_4 side-navigation" id="side-nav-api" role="navigation">
+<div id="sticky-anchor"> </div>
+<div class="side-nav-wrapper" id="sticky">
+<div class="side-nav-content clearfix" id="none">
+<div class="side-nav-section clearfix" id="side-nav-title">
+<h3>API Reference</h3>
+</div>
+<div class="side-nav-section loading clearfix" id="side-nav-parents">
+</div>
+<div class="side-nav-section clearfix" id="side-nav-filter">
+</div>
+<div class="side-nav-section loading clearfix" id="side-nav-children">
+</div>
+</div>
+</div>
+<div class="side-navspacer-bottom"> </div>
+</nav>
+<div class="column grid_8">
+<div class="row">
+<article id="main" class="column grid_8" role="main">
+</article></div></div></div></section><section>
+<script type="text/javascript">
+        (function() {
+            function getDesiredElements(element, attributeName) {
+                var results = new Array();
+                if (element.hasAttribute(attributeName))
+                    results.push(element);
+
+                //Check child nodes
+                for (var i = 0; i &lt; element.childNodes.length; i++) {
+                    var child = element.childNodes[i];
+                    if (child.nodeType == 1) {
+                        results = results.concat(getDesiredElements(child, attributeName));
+                    }
+                }
+                return results;
+            }
+
+            function runFilter() {
+                var ACCEPTABLE_FILTERS = ["bb_menu", "pb_menu", "bb10_menu"],
+                    filter = localStorage.getItem('selectedmenu'),
+                    elements,
+                    target,
+                    x_ww_support,
+                    i;
+
+                if (ACCEPTABLE_FILTERS.indexOf(filter) !== -1) {
+                    elements = getDesiredElements(document.body, 'x-ww-support');
+                    for (i = 0; i &lt; elements.length; i++) {
+                        target = elements[i];
+                        x_ww_support = target.getAttribute('x-ww-support').split('|');
+                        if (x_ww_support.indexOf(filter) &lt; 0) {
+                            target.style.display = 'none';
+                        }
+                    }
+                }
+            }
+
+            if(window.attachEvent) {
+                window.attachEvent('onload', runFilter);
+            } else {
+                if(window.onload) {
+                    var curronload = window.onload,
+                        newonload = function() {
+                        curronload();
+                        runFilter();
+                    };
+                    window.onload = newonload;
+                } else {
+                    window.onload = runFilter;
+                }
+            }
+        })();
+    </script>
+<script type="text/javascript">
+
+        function viewSupportedTable() {
+            var table = document.getElementById('APISupportTable');
+            if (table != null &amp;&amp; table.style.display != 'inline') {
+                table.style.display = 'inline';
+            }
+            else {
+                table.style.display = 'none';
+            }
+        }
+
+    </script>
+<style type="text/css">
+
+        .apiYes {
+            background-color: #D1F8FB;
+        }
+        
+        .tdNoWrap {
+            white-space:nowrap;
+        }
+        
+        .APISupportTable {
+            display:none;
+        }
+    </style>
+<div>
+<h1>
+            
+                ContactActivity
+            
+        </h1>
+<p>
+                The ContactActivity object is an activity that is linked to the contact by either an email, phone call, or calendar event.
+
+
+                
+                    <div x-ww-support="bb10_menu">
+</div>
+</p>
+<br />
+<div class="ref-sect ref-index">
+<div class="ref-sect-title">
+<h2>Supported Platform(s)</h2>
+</div>
+<div class="ref-sect-content">
+<table>
+<tbody>
+<tr><td>- BlackBerry 10</td></tr>
+</tbody>
+</table>
+<a href="javascript:viewSupportedTable()">View Supported Platform Table</a>
+<div class="APISupportTable" id="APISupportTable">
+<table class="apiTable">
+<thead><tr><th>API</th><th>BB5.0</th><th>BB6.0</th><th>BB7.0</th><th>PB1.0</th><th>PB2.0</th><th>BB10</th><th>Ripple</th></tr></thead>
+<tr x-ww-support="bb10_menu">
+<td>
+<a href="blackberry.pim.contacts.contactactivity.html#description">description</a>
+</td><td class="apiNo">&nbsp;</td>
+<td class="apiNo">&nbsp;</td>
+<td class="apiNo">&nbsp;</td>
+<td class="apiNo">&nbsp;</td>
+<td class="apiNo">&nbsp;</td>
+<td class="apiYes">Y</td><td class="apiNo">&nbsp;</td>
+
+</tr>
+<tr x-ww-support="bb10_menu">
+<td>
+<a href="blackberry.pim.contacts.contactactivity.html#direction">direction</a>
+</td><td class="apiNo">&nbsp;</td>
+<td class="apiNo">&nbsp;</td>
+<td class="apiNo">&nbsp;</td>
+<td class="apiNo">&nbsp;</td>
+<td class="apiNo">&nbsp;</td>
+<td class="apiYes">Y</td><td class="apiNo">&nbsp;</td>
+
+</tr>
+<tr x-ww-support="bb10_menu">
+<td>
+<a href="blackberry.pim.contacts.contactactivity.html#mimeType">mimeType</a>
+</td><td class="apiNo">&nbsp;</td>
+<td class="apiNo">&nbsp;</td>
+<td class="apiNo">&nbsp;</td>
+<td class="apiNo">&nbsp;</td>
+<td class="apiNo">&nbsp;</td>
+<td class="apiYes">Y</td><td class="apiNo">&nbsp;</td>
+
+</tr>
+<tr x-ww-support="bb10_menu">
+<td>
+<a href="blackberry.pim.contacts.contactactivity.html#timestamp">timestamp</a>
+</td><td class="apiNo">&nbsp;</td>
+<td class="apiNo">&nbsp;</td>
+<td class="apiNo">&nbsp;</td>
+<td class="apiNo">&nbsp;</td>
+<td class="apiNo">&nbsp;</td>
+<td class="apiYes">Y</td><td class="apiNo">&nbsp;</td>
+
+</tr>
+<tr x-ww-support="bb10_menu">
+<td>
+<a href="blackberry.pim.contacts.contactactivity.html#.INCOMING">INCOMING</a>
+</td><td class="apiNo">&nbsp;</td>
+<td class="apiNo">&nbsp;</td>
+<td class="apiNo">&nbsp;</td>
+<td class="apiNo">&nbsp;</td>
+<td class="apiNo">&nbsp;</td>
+<td class="apiYes">Y</td><td class="apiNo">&nbsp;</td>
+
+</tr>
+<tr x-ww-support="bb10_menu">
+<td>
+<a href="blackberry.pim.contacts.contactactivity.html#.OUTGOING">OUTGOING</a>
+</td><td class="apiNo">&nbsp;</td>
+<td class="apiNo">&nbsp;</td>
+<td class="apiNo">&nbsp;</td>
+<td class="apiNo">&nbsp;</td>
+<td class="apiNo">&nbsp;</td>
+<td class="apiYes">Y</td><td class="apiNo">&nbsp;</td>
+
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="ref-sect ref-index">
+<div class="ref-sect-title">
+<h2>Configuration Document Settings</h2>
+</div>
+<div class="ref-sect-content">
+<table><tbody>
+<tr><td>
+<p>To use <u>all</u> of the API described for this object, you must ensure the following settings are in your configuration document:</p>
+</td></tr>
+<tr><td>
+<p>You must declare the feature element(s) below in your configuration document:</p>
+</td></tr></tbody></table>
+<table>
+<thead><tr><th>Feature ID</th><th>BB5.0</th><th>BB6.0</th><th>BB7.0</th><th>PB1.0</th><th>PB2.0</th><th>BB10</th><th>Ripple</th></tr></thead>
+<tr x-ww-support="bb10_menu"><td>
+                                &lt;feature id="blackberry.pim.contacts" /&gt;
+                                </td><td class="apiNo">&nbsp;</td>
+<td class="apiNo">&nbsp;</td>
+<td class="apiNo">&nbsp;</td>
+<td class="apiNo">&nbsp;</td>
+<td class="apiNo">&nbsp;</td>
+<td class="apiYes">Y</td><td class="apiNo">&nbsp;</td>
+</tr>
+</table>
+<div x-ww-support="pb_menu|bb10_menu">
+<table>
+<tr>
+<th>Permission Elements (PlayBook and BlackBerry 10+)</th>
+</tr>
+<tr><td>
+                                This API does not require a &lt;permission&gt; element to be declared in the configuration document of your BlackBerry WebWorks Application.
+                            </td></tr>
+<br />
+</table>
+</div>
+</div>
+</div>
+<div>
+<br />
+<div class="ref-sect ref-index" x-ww-support="bb10_menu">
+<div class="ref-sect-title">
+<h2> Properties </h2>
+</div>
+<div class="ref-sect-content">
+<table><tbody>
+<tr x-ww-support="bb10_menu">
+<td class="first_column">
+                                        
+                                            String
+                                        
+                                    </td>
+<td>
+<a href="blackberry.pim.contacts.contactactivity.html#description">description</a>
+</td>
+</tr>
+<tr x-ww-support="bb10_menu">
+<td class="first_column">
+                                        
+                                            Boolean
+                                        
+                                    </td>
+<td>
+<a href="blackberry.pim.contacts.contactactivity.html#direction">direction</a>
+</td>
+</tr>
+<tr x-ww-support="bb10_menu">
+<td class="first_column">
+                                        
+                                            String
+                                        
+                                    </td>
+<td>
+<a href="blackberry.pim.contacts.contactactivity.html#mimeType">mimeType</a>
+</td>
+</tr>
+<tr x-ww-support="bb10_menu">
+<td class="first_column">
+                                        
+                                            Date
+                                        
+                                    </td>
+<td>
+<a href="blackberry.pim.contacts.contactactivity.html#timestamp">timestamp</a>
+</td>
+</tr>
+</tbody></table>
+</div>
+</div>
+<br />
+<div class="ref-sect ref-index" x-ww-support="bb10_menu">
+<div class="ref-sect-title">
+<h2> Constants </h2>
+</div>
+<div class="ref-sect-content">
+<table><tbody>
+<tr x-ww-support="bb10_menu">
+<td class="first_column">
+                                        
+                                            Boolean
+                                        
+                                    </td>
+<td>
+<a href="blackberry.pim.contacts.contactactivity.html#.INCOMING">INCOMING</a>
+</td>
+</tr>
+<tr x-ww-support="bb10_menu">
+<td class="first_column">
+                                        
+                                            Boolean
+                                        
+                                    </td>
+<td>
+<a href="blackberry.pim.contacts.contactactivity.html#.OUTGOING">OUTGOING</a>
+</td>
+</tr>
+</tbody></table>
+</div>
+</div>
+</div>
+<div class="ref-sect">
+<div class="ref-sect-title clearfix">
+<h2>Properties</h2>
+</div>
+<div class="ref-sect-content">
+<div class="detailed_item function" x-ww-support="bb10_menu">
+<h3>
+<a name="description"></a>
+                 
+                            
+                            
+                                
+                                    
+                                                      
+                                        readonly
+                                        String
+                                        
+                                        
+                                            description
+                                            
+                                                                  
+                                    
+                                
+                            
+                            <br />
+</h3>
+<div class="detailed description">
+<br />
+<p>This is the description of the activity. For messages, this would be the subject.
+For call log, this would be the phone number.</p>
+<br />
+<table>
+<thead><tr><th colspan="2">
+                                        Supported Platforms
+                                    </th></tr></thead>
+<tr><td></td><td>
+                                            &nbsp;- BlackBerry 10
+                                        </td></tr>
+</table>
+<br />
+</div>
+</div>
+<div class="detailed_item function" x-ww-support="bb10_menu">
+<h3>
+<a name="direction"></a>
+                 
+                            
+                            
+                                
+                                    
+                                                      
+                                        readonly
+                                        Boolean
+                                        
+                                        
+                                            direction
+                                            
+                                                                  
+                                    
+                                
+                            
+                            <br />
+</h3>
+<div class="detailed description">
+<br />
+<p>If True, the direction of the activity is incoming, and outgoing otherwise.</p>
+<br />
+<table>
+<thead><tr><th colspan="2">
+                                        Supported Platforms
+                                    </th></tr></thead>
+<tr><td></td><td>
+                                            &nbsp;- BlackBerry 10
+                                        </td></tr>
+</table>
+<br />
+</div>
+</div>
+<div class="detailed_item function" x-ww-support="bb10_menu">
+<h3>
+<a name="mimeType"></a>
+                 
+                            
+                            
+                                
+                                    
+                                                      
+                                        readonly
+                                        String
+                                        
+                                        
+                                            mimeType
+                                            
+                                                                  
+                                    
+                                
+                            
+                            <br />
+</h3>
+<div class="detailed description">
+<br />
+<p>The MIME Type value of the operation in question.</p>
+<br />
+<table>
+<thead><tr><th colspan="2">
+                                        Supported Platforms
+                                    </th></tr></thead>
+<tr><td></td><td>
+                                            &nbsp;- BlackBerry 10
+                                        </td></tr>
+</table>
+<br />
+</div>
+</div>
+<div class="detailed_item function" x-ww-support="bb10_menu">
+<h3>
+<a name="timestamp"></a>
+                 
+                            
+                            
+                                
+                                    
+                                                      
+                                        readonly
+                                        Date
+                                        
+                                        
+                                            timestamp
+                                            
+                                                                  
+                                    
+                                
+                            
+                            <br />
+</h3>
+<div class="detailed description">
+<br />
+<p>The timestamp associated with the contact activity.</p>
+<br />
+<table>
+<thead><tr><th colspan="2">
+                                        Supported Platforms
+                                    </th></tr></thead>
+<tr><td></td><td>
+                                            &nbsp;- BlackBerry 10
+                                        </td></tr>
+</table>
+<br />
+</div>
+</div>
+</div>
+</div>
+<div class="ref-sect">
+<div class="ref-sect-title clearfix">
+<h2>Constants</h2>
+</div>
+<div class="ref-sect-content">
+<div class="detailed_item function" x-ww-support="bb10_menu">
+<h3>
+<a name=".INCOMING"></a>
+                 
+                            
+                            
+                                
+                                    
+                                        static              
+                                        
+                                        Boolean
+                                        
+                                        
+                                            INCOMING
+                                            
+                                                
+                                                    
+                                                
+                                            
+                                                                  
+                                    
+                                
+                            
+                            <br />
+</h3>
+<div class="detailed description">
+<br />
+<p>The direction of the activity is incoming.</p>
+<br />
+<table>
+<thead><tr><th colspan="2">
+                                        Supported Platforms
+                                    </th></tr></thead>
+<tr><td></td><td>
+                                            &nbsp;- BlackBerry 10
+                                        </td></tr>
+</table>
+<br />
+</div>
+</div>
+<div class="detailed_item function" x-ww-support="bb10_menu">
+<h3>
+<a name=".OUTGOING"></a>
+                 
+                            
+                            
+                                
+                                    
+                                        static              
+                                        
+                                        Boolean
+                                        
+                                        
+                                            OUTGOING
+                                            
+                                                
+                                                    
+                                                
+                                            
+                                                                  
+                                    
+                                
+                            
+                            <br />
+</h3>
+<div class="detailed description">
+<br />
+<p>The direction of the activity is outgoing.</p>
+<br />
+<table>
+<thead><tr><th colspan="2">
+                                        Supported Platforms
+                                    </th></tr></thead>
+<tr><td></td><td>
+                                            &nbsp;- BlackBerry 10
+                                        </td></tr>
+</table>
+<br />
+</div>
+</div>
+</div>
+</div>
+<div>
+            
+            Documentation generated by <a href="http://code.google.com/p/jsdoc-toolkit/" target="_blank">JsDoc Toolkit</a> 2.4.0 on Thu Jan 10 2013 16:45:35 GMT-0500 (EST)
+        </div>
+</div>
+</section>
+
+</div>
